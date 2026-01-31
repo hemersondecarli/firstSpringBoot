@@ -1,5 +1,7 @@
 package com.intro.demo;
 
+import com.intro.demo.service.OrderService;
+import com.intro.demo.service.StripePaymentService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,7 +9,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+
+        //spring app
+		//SpringApplication.run(DemoApplication.class, args);
+
+        //running console app
+        var orderService = new OrderService(new StripePaymentService());
+        orderService.placeOrder();
 	}
 
 }
