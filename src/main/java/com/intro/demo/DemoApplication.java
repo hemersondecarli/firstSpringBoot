@@ -15,11 +15,13 @@ public class DemoApplication {
 		//SpringApplication.run(DemoApplication.class, args);
 
         //running console app
-        var orderService = new OrderService(new StripePaymentService());
+        var orderService = new OrderService();
+
+        orderService.setPaymentService(new StripePaymentService());
         orderService.placeOrder();
 
-        var orderingService = new OrderService(new PaypalPaymentService());
-        orderingService.placeOrder();
+        orderService.setPaymentService(new PaypalPaymentService());
+        orderService.placeOrder();
 	}
 
 }
