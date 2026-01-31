@@ -1,6 +1,7 @@
 package com.intro.demo;
 
 import com.intro.demo.service.OrderService;
+import com.intro.demo.service.PaypalPaymentService;
 import com.intro.demo.service.StripePaymentService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,6 +17,9 @@ public class DemoApplication {
         //running console app
         var orderService = new OrderService(new StripePaymentService());
         orderService.placeOrder();
+
+        var orderingService = new OrderService(new PaypalPaymentService());
+        orderingService.placeOrder();
 	}
 
 }
