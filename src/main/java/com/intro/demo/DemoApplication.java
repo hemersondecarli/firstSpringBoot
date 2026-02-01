@@ -22,7 +22,7 @@ public class DemoApplication {
         orderService.placeOrder();
 
         //orderService.setPaymentService(new PaypalPaymentService());
-        orderService.placeOrder();
+        //orderService.placeOrder();
 	}
 
 }
